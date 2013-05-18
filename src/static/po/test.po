@@ -1,0 +1,68 @@
+# Fichier de test du script francisator.sh
+
+# Blocs de métadonnées.
+# Le script n'y touche pas. De même pour tous les commentaires et tous les blocs « msgid » du fichier.
+msgid ""
+msgstr ""
+"Project-Id-Version: Test !\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+
+#, Le premier signe sera corrigé automatiquement, le deuxième ne sera que signalé.
+msgid "Where is Bryan?"
+msgid_plural "Where are the Bryans?"
+msgstr[0] "Où est : Bryan ?\n"
+msgstr[1] "Où sont ; les Bryans?"
+
+#, Le script ne corrige rien ici (cas particulier des smileys)
+msgid "Blablabla ? ! (rien n'est corrigé/signalé dans les chaines originales, "
+"c'est la liberté!)"
+msgstr "kikoo :p lol ;-)"
+
+#, Un autre cas particulier (espace et signe sur 2 lignes différentes).
+#, Le script signale la ligne mais ne la corrige pas automatiquement
+#, (comme gettext ne coupe pas les mots et donc les espaces insécable,
+#, en pratique on à vraiment peu de chance de tomber sur un tel cas)
+msgid "Ceci est un bloc msgid, pas un bloc msgstr (et rien ne plante quand j'emploie ces mots hors contexte)"
+msgstr "Voici les 3 éléments à considérer "
+": le rouge, le bleu, le vert."
+
+#, le script notifie les erreurs de balises XML
+msgid "test"
+msgstr "<gui><em>Ceci est un test<em></gui>"
+
+#, le script notifie les espaces en double/triple
+msgid "test"
+msgstr "Je suis content "
+" d'être là."
+
+#, Le script signale également l'emploi d'un B (byte) au lieu d'un o (octet)
+msgid "cool"
+msgstr "80 GB"
+
+#, Le script signale aussi les espaces insécables restant après conversion
+#, (elle sont sensées être très peu nombreuses, il peut donc être intéressant de voir si elles sont employées à bon escient). 
+msgid "let's rock!"
+msgstr "Chouette ! On arrive à la fin de ce fichier de test !"
+
+#, Une chaine longue avec une erreur potentielle (test de l'affichage du contexte)
+msgid ""
+"Information specific to compressed data. The channels of each component are "
+"arranged in order from the 1st component to the 4th. For uncompressed data "
+"the data arrangement is given in the can only express the order "
+"of Y, Cb and Cr, this tag is provided for cases when compressed data uses "
+"components other than Y, Cb, and Cr and to enable support of other sequences."
+msgstr ""
+"Information spécifique aux données compressées. Les canaux de chaque "
+"composants sont arrangés du 1er au 4e. Pour les données non compressées "
+"l'ordre des données est indiqué dans la balise"
+"ne peut pas indiquer l'ordre de Y, Cb et Cr, cette balise est disponible "
+"dans les cas où les données compressées utilisent des composants autres que "
+"Y, Cb, et Cr pour activer la prise en charge d'autres plop:séquences.…"
+
+#, Une ancienne chaine qui sera également traitée par le script.
+#, Ici, le script signale le fait que la chaine originale et sa traduction ne se terminent pas par le même signe de ponctuation
+#~ msgid "S_ource"
+#~ msgstr "Sou_rce !"
