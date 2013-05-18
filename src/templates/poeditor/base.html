@@ -1,0 +1,23 @@
+<html>
+
+    <head>
+        <title>POEditor</title>
+        <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}poeditor/css/styles.css" />
+    </head>
+
+    <body>
+        <div id="container" class="well">
+            {% block navigation %}
+            <ul class="nav nav-tabs">
+                <li><a href="/poeditor/">Upload</a></li>
+                <li><a href="/poeditor/list/">List of PO Files</a></li>
+                <li><a href="#">Some Link</a></li>
+            </ul>
+            {% endblock %}
+
+            {% block app_content %}{% endblock %}
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,28 @@
+{% extends "poeditor/base.html" %}
+
+{% block app_content %}   
+
+{% if po_messages %}
+    
+    <table class="table table-condensed table-bordered table-striped">
+        <thead>
+            <td>#</td>
+            <td>Location</td>
+            <td>Source</td>
+            <td>Target</td>
+        </thead>
+        {% for message in po_messages %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ message.location }}</td>
+            <td>{{ message.source }}</td>
+            <td>{{ message.target }}</td>
+        </tr>
+        {% endfor %}
+    </title>
+
+{% else %}
+No messages corresponding to this upload.
+{% endif %}
+
+{% endblock app_content %}

@@ -1,0 +1,26 @@
+{% extends "poeditor/base.html" %}
+
+{% block app_content %}   
+
+{% if files %}
+    
+    <table class="table table-condensed">
+        <thead>
+            <td>Name</td>
+            <td>File</td>
+            <td>Details</td>
+        </thead>
+        {% for file in files %}
+        <tr>
+            <td>{{ file.name }}</td>
+            <td><a href="{{ file.po.url }}">Download/View</a></td>
+            <td><a href="/poeditor/details/{{ file.pk }}/">View Details</a></td>
+        </tr>
+        {% endfor %}
+    </title>
+
+{% else %}
+No files uploaded
+{% endif %}
+
+{% endblock app_content %}

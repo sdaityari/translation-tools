@@ -1,12 +1,6 @@
-<html>
+{% extends "poeditor/base.html" %}
 
-    <head>
-        <title>POEditor</title>
-        <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" />
-    </head>
-
-    <body class="well">
-    
+    {% block app_content %}   
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.non_field_errors }}
@@ -14,6 +8,4 @@
         <br />
         <input type = "submit" value = "Upload!" />
     </form>
-    </body>
-
-</html>
+    {% endblock app_content %}

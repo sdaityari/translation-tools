@@ -38,3 +38,15 @@ def index(request):
                 'form' : form,
     }, context_instance=RequestContext(request))
 
+def list(request):
+    files = PoFile.objects.all()
+    return render_to_response('poeditor/list.html', {
+                'files' : files,
+    }, context_instance=RequestContext(request))
+
+def details(request, pofile_id):
+    po_messages = PoMessages.objects.filter(po_file__pk = pofile_id)
+    return render_to_response('poeditor/details.html', {
+                'po_messages' : po_messages,
+    }, context_instance=RequestContext(request))
+ 

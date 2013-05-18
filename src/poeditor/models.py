@@ -17,4 +17,4 @@ class PoMessages(models.Model):
     target = models.TextField(blank = True)
     
     def __unicode__(self):
-        return self.po_file.name
+        return str(self.po_file.name) + ":" + str(self.location)
