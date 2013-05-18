@@ -8,12 +8,23 @@
 
     <body>
         <div id="container" class="well">
+            
             {% block navigation %}
             <ul class="nav nav-tabs">
                 <li><a href="/poeditor/">Upload</a></li>
                 <li><a href="/poeditor/list/">List of PO Files</a></li>
                 <li><a href="#">Some Link</a></li>
             </ul>
+            {% endblock navigation %}
+
+            {% block messages %}
+                {% if messages %}
+                    <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %} 
             {% endblock %}
 
             {% block app_content %}{% endblock %}
