@@ -72,4 +72,6 @@ function make_changes(){
             data: JSON.stringify(data),
     });
 
+    $('#status-messages').html('Successfully Updated Databse');
+
 }

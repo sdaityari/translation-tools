@@ -3,9 +3,11 @@
 {% block app_content %}   
 
 {% if po_messages %}
+    
     <div id="status-messages"></div>
     <button id="btn-save" class="btn btn-primary" onclick="make_changes()" >Save Changes</button>
     <br /> 
+    <p class="alert alert-info">Click on the data below to edit it. After editing, click save changes to save it in the database.</p>
     <table class="table table-condensed table-bordered table-striped">
         <thead>
             <td>#</td>
