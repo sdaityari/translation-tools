@@ -3,7 +3,9 @@
 {% block app_content %}   
 
 {% if po_messages %}
-    
+    <div id="status-messages"></div>
+    <button id="btn-save" class="btn btn-primary" onclick="make_changes()" >Save Changes</button>
+    <br /> 
     <table class="table table-condensed table-bordered table-striped">
         <thead>
             <td>#</td>
@@ -12,14 +14,14 @@
             <td>Target</td>
         </thead>
         {% for message in po_messages %}
-        <tr>
+        <tr id="tr{{ message.pk }}" onkeydown="stage_for_changes('{{ message.pk }}')">
             <td>{{ forloop.counter }}</td>
-            <td>{{ message.location }}</td>
-            <td>{{ message.source }}</td>
-            <td>{{ message.target }}</td>
+            <td id="location{{ message.pk }}" contenteditable="true" >{{ message.location }}</td>
+            <td id="source{{ message.pk }}" contenteditable="true" >{{ message.source }}</td>
+            <td id="target{{ message.pk }}" contenteditable="true" >{{ message.target }}</td>
         </tr>
         {% endfor %}
-    </title>
+    </table>
 
 {% else %}
 No messages corresponding to this upload.

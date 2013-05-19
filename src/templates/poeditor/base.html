@@ -6,13 +6,13 @@
         <link rel="stylesheet" href="{{ STATIC_URL }}poeditor/css/styles.css" />
     </head>
 
-    <body>
+    <body onload="check_nav()">
         <div id="container" class="well">
             
             {% block navigation %}
             <ul class="nav nav-tabs">
-                <li><a href="/poeditor/">Upload</a></li>
-                <li><a href="/poeditor/list/">List of PO Files</a></li>
+                <li id="upload" ><a href="/poeditor/">Upload</a></li>
+                <li id="list" ><a href="/poeditor/list/">List of PO Files</a></li>
                 <li><a href="#">Some Link</a></li>
             </ul>
             {% endblock navigation %}
@@ -29,6 +29,7 @@
 
             {% block app_content %}{% endblock %}
         </div>
+    <script type="text/javascript" src="{{ STATIC_URL }}jquery/jquery-1.8.1.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}poeditor/js/scripts.js"></script>
     </body>
-
 </html>

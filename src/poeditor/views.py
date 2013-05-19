@@ -1,12 +1,14 @@
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.contrib import messages
-from django.http import Http404
+from django.http import HttpResponse, Http404
 
 from poeditor.models import *
 from poeditor import forms, utils
 
 from translationtools.settings import MEDIA_ROOT
+
+import json
 
 def index(request):
     """
@@ -49,4 +51,16 @@ def details(request, pofile_id):
     return render_to_response('poeditor/details.html', {
                 'po_messages' : po_messages,
     }, context_instance=RequestContext(request))
- 
+
+def update(request):
+    if request.method == 'POST' :
+        data = json.loads(request.raw_post_data)
+        for message in data['messages']:
+            po_message = get_object_or_404(PoMessages, pk = message['pk'])
+            po_message.location = message['location']
+            po_message.source = message['source']
+            po_message.target = message['target']
+            po_message.save()
+        return HttpResponse("Data Updated Successfully!")
+    else:
+        return HttpResponse("ERROR")
