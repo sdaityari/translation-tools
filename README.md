@@ -3,7 +3,7 @@
 >Django 1.4 without Apache (https://docs.djangoproject.com/en/1.4/topics/install/)   
 >translate-toolkit (http://docs.translatehouse.org/projects/translate-toolkit/en/latest/installation.html)   
 
-####src/translationtools/settings.py
+####In "src/translationtools/settings.py"
 >Set database username, password in DATABASES   
 >Set MEDIA_ROOT to src/media (provide full path)   
 >Set STATICFILES_DIRS   
